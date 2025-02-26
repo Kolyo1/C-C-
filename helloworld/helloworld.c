@@ -29,7 +29,7 @@ struct Student{
 enum Day{Sun = 1 ,Mon = 2,Tue = 3,Wed = 4,Thu = 5,Fri = 6,Sat = 7};
 
 int main(){
-
+    
     /*escape sequence = character combination consisting of a backlash/ 
                                     folowed by a leter or combination of digits.
                                     They specify actions within a line or a string of text.

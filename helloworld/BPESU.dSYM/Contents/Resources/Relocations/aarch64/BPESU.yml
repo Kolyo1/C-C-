@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/prom4/Desktop/uni/C/C-C-/helloworld/BPESU'
+relocations:     []
+...
