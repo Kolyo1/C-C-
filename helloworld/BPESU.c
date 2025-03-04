@@ -107,7 +107,7 @@ int main(){
     // printf("Enter x2 y2: ");
     // scanf("%lf %lf", &x2, &y2);
     // width = fabs(x2 - x1);
-    // height = fabs(y2 - y1);
+    // height = fabs(y2 - y1)
     // area = width * height;
     // printf("S: %.2lf\n", area);
 
