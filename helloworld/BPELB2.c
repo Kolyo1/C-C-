@@ -18,10 +18,10 @@ void OddOrEven(int a){
 }
 
 void DecimalToBinaryWithPointer(int a, char *ptr){
-    if(a >1){
+    if(a>1){
         DecimalToBinaryWithPointer(a/2, ptr);
     }
-    *ptr = (a%2) + '0';
+    *ptr = (a%2) +'0';
     putchar(*ptr);
 }
 
@@ -113,7 +113,7 @@ int main(){
     char ptr;
     scanf("%d", &a);
     DecimalToBinaryWithPointer(a,  &ptr);
-    
+    printf("\n");
 /*
     //5 
     int p;
