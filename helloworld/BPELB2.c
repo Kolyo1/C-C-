@@ -17,26 +17,12 @@ void OddOrEven(int a){
     }
 }
 
-void DecimalToBinaryWithPointer(int a){
-    if( a == 0){
-        printf("0");
+void DecimalToBinaryWithPointer(int a, char *ptr){
+    if(a >1){
+        DecimalToBinaryWithPointer(a/2, ptr);
     }
-
-    int binary[32];
-    int i = 0;
-    int *ptr = binary;
-    while (a > 0)
-    {
-        *(ptr + i) = a % 2;
-        a /= 2;
-        i++;
-    }
-
-    for (int j = i - 1; j >= 0; j--) {
-        printf("%d", *(ptr + j));
-    }
-    printf("\n");
-    
+    *ptr = (a%2) + '0';
+    putchar(*ptr);
 }
 
 void Square(double a){
@@ -64,6 +50,8 @@ void Circle(int r){
 }
 
 int main(){
+    /*
+
     // 1
     int figure;
     printf("Enter a figure: 1(квадрат) 2(правоъгълник) 3(правоъгълен триъгълник) 4(окръжност)");
@@ -106,6 +94,7 @@ int main(){
             printf("Invalid choice.\n");
             break;
     }
+
    // 2
     int a;
     int b;
@@ -118,13 +107,14 @@ int main(){
     int a; 
     scanf("%d", &a);
     OddOrEven(a);
-
+*/
     // 4
     int a;
+    char ptr;
     scanf("%d", &a);
-    DecimalToBinaryWithPointer(a);
+    DecimalToBinaryWithPointer(a,  &ptr);
     
-
+/*
     //5 
     int p;
     scanf("%d", &p);
@@ -146,5 +136,6 @@ int main(){
     printf("Difference: %.2lf\n", *pta - *ptb);
     printf("Product: %.2lf\n", *pta * *ptb);
     printf("Quotient: %.2lf\n", *pta / *ptb);
+    */
    return 0;
 }
