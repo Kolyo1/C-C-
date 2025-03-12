@@ -150,6 +150,7 @@ int main(){
     int p3 = 0;
     int p4 = 0;
     int p5 = 0;
+    if(n >= 1 && n <= 1000){
     for(int i = 0; i < n; i++){
         int num;
         scanf("%d", &num);
@@ -169,6 +170,7 @@ int main(){
             p5++;
         }
     }
+}
     printf("%.2lf%%\n", (p1 / (double)n) * 100);
     printf("%.2lf%%\n", (p2 / (double)n) * 100);
     printf("%.2lf%%\n", (p3 / (double)n) * 100);
