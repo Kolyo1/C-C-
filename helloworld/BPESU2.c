@@ -178,98 +178,43 @@ int main(){
     //Zad 11
     int n;
     scanf("%d", &n);
-    int width = 2 * n;
-    int leftRight = n / 2;
-    int middle = width - (2 * leftRight) - 4;
-    printf("+");
-    for (int j = 0; j < leftRight; j++) {
-        printf("/");
+    int midWidth = 2 * n - 2 * (n / 2) - 4;
+    printf("/%.*s\\%.*s/%.*s\\\n", n / 2, "********", midWidth, " ", n / 2, "********");
+    for (int i = 0; i < n - 3; i++) {
+        printf("|%*s|\n", 2 * n - 2, " ");
     }
-    printf("**");
-    for (int j = 0; j < leftRight; j++) {
-        printf("\\");
+    if (n > 2) {
+        printf("|%*s%.*s%*s|\n", n / 2, " ", midWidth, "****", n / 2, " ");
     }
-    printf("+\n");
-    for (int i = 0; i < n - 2; i++) {
-        printf("|");
-        for (int j = 0; j < width - 2; j++) {
-            printf(" ");
-        }
-        printf("|\n");
-    }
-    printf("+");
-    for (int j = 0; j < leftRight; j++) {
-        printf("\\");
-    }
-    printf("**");
-    for (int j = 0; j < leftRight; j++) {
-        printf("/");
-    }
-    printf("+\n");
+    printf("\\%.*s/%.*s\\%.*s/\n", n / 2, "********", midWidth, " ", n / 2, "********");
 
 
     //Zad 12
     int n;
     scanf("%d", &n);
     int width = 2 * n - 1;
-    int leftRight = n - 1;
-    for (int i = 0; i < n - 1; i++) {
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
+    int height = 2 * (n - 2) + 1;
+    int mid = n - 1;
+
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (i == mid && j == width / 2) {
+                printf("@");
+            } 
+            else if (j == i || j == width - i - 1) {
+                printf("/");
+            } 
+            else if (j == i - 1 || j == width - i) {
+                printf("\\");
+            } 
+            else if ((j > i && j < width - i - 1) || (j < i && j > width - i - 1)) {
+                printf("-");
+            } 
+            else {
+                printf("*");
+            }
         }
-
-        for (int j = 0; j < leftRight - 1; j++) {
-            printf(" ");
-        }
-
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
-        }
-
-        printf(" ");
-
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
-        }
-
-        for (int j = 0; j < leftRight - 1; j++) {
-            printf(" ");
-        }
-
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
-        }
-
         printf("\n");
     }
-    for (int i = 0; i < n - 1; i++) {
-        printf(" ");
-    }
-    printf("@\n");
-    for (int i = n - 2; i >= 0; i--) {
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
-        }
-
-        for (int j = 0; j < leftRight - 1; j++) {
-            printf(" ");
-        }
-
-        if (i % 2 == 0) {
-            printf("*");
-        } else {
-            printf("-");
-        }
-    }
-    return 0;
+     return 0;
 }
