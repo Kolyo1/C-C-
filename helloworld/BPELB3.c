@@ -41,7 +41,7 @@ void GetAvg(int n){
             sum += arr[i];
         }
     }
-    printf("Average: %.3f\n", sum / (double)(n));
+    printf("Average: %.2lf\n", sum / (double)(n));
 }
 
 void GetCenter(int n){
@@ -66,15 +66,14 @@ void GetCenter(int n){
             centerIndex = i;
         }
     }
-    printf("средна стойност : %.2f.\n Най-близка стойност %d на %d-то място\n", avg,center,centerIndex+1);
+    printf("средна стойност : %.2lf.\n Най-близка стойност %d на %d-то място\n", avg,center,centerIndex+1);
 }
 
 int main(){
-    int n;
-    scanf("%d", &n);
+    const int n = 7;
     //GetSum(n);
     //GetMax(n);
     //GetAvg(n);
-    GetCenter(n);
+    //GetCenter(n);
     return 0;
 }
