@@ -85,45 +85,39 @@ typedef struct{
     int classCount;
 }GraduationYear;
 
-void inputStudent(GraduationYear *g){
+void inputStudent(GraduationYear *g, int index) {
     printf("Enter class name: ");
-    scanf("%s", g->class[g->classCount].className);
-    if (g->class[g->classCount].className[0] == '\0' || strlen(g->class[g->classCount].className) > 50)
-    {
+    scanf("%s", g->class[index].className);
+    if (g->class[index].className[0] == '\0' || strlen(g->class[index].className) > 50) {
         printf("Class name cannot be empty and can't exceed 50 characters\n");
         return;
     }
+
     printf("Enter number of students: ");
-    scanf("%d", &g->class[g->classCount].studentCount);
-    if (g->class[g->classCount].studentCount > 30 || g->class[g->classCount].studentCount < 0)
-    {
-        printf("Number of students cannot exceed 30 and be bellow 0\n");
+    scanf("%d", &g->class[index].studentCount);
+    if (g->class[index].studentCount > 30 || g->class[index].studentCount < 0) {
+        printf("Number of students must be between 0 and 30\n");
         return;
     }
-    for (int i = 0; i < g->class[g->classCount].studentCount; i++)
-    {
+
+    for (int i = 0; i < g->class[index].studentCount; i++) {
         printf("Enter student name: ");
-        scanf("%s", g->class[g->classCount].student[i].name);
-        if (g->class[g->classCount].student[i].name[0] == '\0' || strlen(g->class[g->classCount].student[i].name) > 50)
-        {
+        scanf("%s", g->class[index].student[i].name);
+        if (g->class[index].student[i].name[0] == '\0' || strlen(g->class[index].student[i].name) > 50) {
             printf("Name cannot be empty and can't exceed 50 characters\n");
             i--;
+            continue;
         }
+
         printf("Enter student GPA: ");
-        scanf("%lf", &g->class[g->classCount].student[i].gpa);
-        if (g->class[g->classCount].student[i].gpa < 2 || g->class[g->classCount].student[i].gpa > 6)
-        {
+        scanf("%lf", &g->class[index].student[i].gpa);
+        if (g->class[index].student[i].gpa < 2 || g->class[index].student[i].gpa > 6) {
             printf("GPA must be between 2 and 6\n");
             i--;
         }
     }
-    g->classCount++;
-    if (g->classCount > 5)
-    {
-        printf("Number of classes cannot exceed 5\n");
-        return;
-    }
 }
+
 
 double classGPA(classroom c){
     double sum = 0;
@@ -199,18 +193,22 @@ int main(){
 
     printf("Enter number of classes: ");
     scanf("%d", &year.classCount);
-    if (year.classCount > 5 || year.classCount < 0)
-    {
-        printf("Number of classes cannot exceed 5 and be bellow 0\n");
+    if (year.classCount > 5 || year.classCount < 0) {
+        printf("Number of classes cannot exceed 5 and be below 0\n");
         return 0;
     }
 
-    graduationYearPtr->classCount = 0;
-    inputStudent(graduationYearPtr);
+    graduationYearPtr->classCount = year.classCount;
+
+    // input students for each class
+    for (int i = 0; i < year.classCount; i++) {
+        inputStudent(graduationYearPtr, i); // Предаваме индекса!
+    }
+
     printf("Average GPA of each class:\n");
-    for (int i = 0; i < year.classCount; i++)
-    {
+    for (int i = 0; i < year.classCount; i++) {
         printf("Class %s: %.2f\n", year.class[i].className, classGPA(year.class[i]));
     }
+
     printf("Average GPA of the year: %.2f\n", yearGPA(year));
 }
