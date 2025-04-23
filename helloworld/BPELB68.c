@@ -90,7 +90,9 @@ void ReadFromFile(const char* filename) {
         exit(7);
     }
 
-    fclose(fp);
+    if (fclose(fp) != 0) {
+        exit(8);
+    }
 
     Sort(arr, length);
     const char* txt = "test.txt";
