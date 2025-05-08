@@ -282,15 +282,15 @@ void ReadCompare(const char* filename4, const char* filename5) {
 
 int main() {
     // Zad 1
-    // const char* filename1 = "first.bin";
-    // WritingToFile(filename1);
-    // ReadFromFile(filename1);
+    const char* filename1 = "first.bin";
+    WritingToFile(filename1);
+    ReadFromFile(filename1);
 
-    // Zad 2
-    // const char*  filename2 = "second.bin";
-    // const char* filename3 = "second.txt";
-    // WriteToFile2(filename2);
-    // SortAndWriteTotxt(filename2, filename3);
+    //Zad 2
+    const char*  filename2 = "second.bin";
+    const char* filename3 = "second.txt";
+    WriteToFile2(filename2);
+    SortAndWriteTotxt(filename2, filename3);
     // Zad 3
     const char* filename4 = "car.bin";
     const char* filename5 = "car.txt";

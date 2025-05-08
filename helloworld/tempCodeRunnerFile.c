@@ -1,3 +1,4 @@
-const char* filename1 = "test.bin";
-    // WritingToFile(filename1);
-    // ReadFromFile(filename1);
+int i = 0; i < size; i++) {
+        arr[i] = i + 1;
+        size++;
+    }

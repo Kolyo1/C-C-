@@ -17,7 +17,7 @@ void Add(int **arr, int *size, int x, int y) {
         }
         *size = new_size;
     } else {
-        int new_size = *size + 1;
+        int new_size = size + 1;
         int *temp = realloc(*arr, new_size * sizeof(int));
         if (temp == NULL) {
             printf("Memory allocation failed!\n");
@@ -76,7 +76,6 @@ int main() {
         printf("Memory allocation failed!\n");
         return 1;
     }
-
     printf("Enter %d elements: ", size);
     for (int i = 0; i < size; i++) {
         scanf("%d", &arr[i]);

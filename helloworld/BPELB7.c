@@ -200,9 +200,8 @@ int main(){
 
     graduationYearPtr->classCount = year.classCount;
 
-    // input students for each class
     for (int i = 0; i < year.classCount; i++) {
-        inputStudent(graduationYearPtr, i); // Предаваме индекса!
+        inputStudent(graduationYearPtr, i); 
     }
 
     printf("Average GPA of each class:\n");
