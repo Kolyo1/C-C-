@@ -25,7 +25,7 @@
 //     printf("Enter price: ");
 //     scanf("%lf", &animal.price);
     
-//     fprintf(fp, "%s %s %.2f\n", animal.ownerName, animal.code, animal.price);
+//     fprintf(fp, "%s, %.2f\n", animal.ownerName, animal.price);
 //     fclose(fp);
     
 //     return animal;
